@@ -20,7 +20,7 @@ services:
       PMA_PASSWORD: fei2020
     ports:
       - 8001:80 
-      
+
   app:
     image: yiisoftware/yii2-php:7.1-apache
     volumes: 
@@ -30,6 +30,7 @@ services:
       DDBB_DATABASE: fei2020
       DDBB_HOST: db
       DDBB_PASSWORD: fei2020
+      PHP_USER_ID: 1000
     
     ports: 
       - 8000:80
