@@ -20,14 +20,14 @@ services:
       PMA_PASSWORD: fei2020
     ports:
       - 8001:80 
+      
   app:
     image: yiisoftware/yii2-php:7.1-apache
     volumes: 
       - ./src/composer/cache:/root/.composer/cache:delegated
       - ./src/basic:/app:delegated
     environment:
-     
-      DDBB_USER: fei2020
+      DDBB_DATABASE: fei2020
       DDBB_HOST: db
       DDBB_PASSWORD: fei2020
     
