@@ -12,7 +12,13 @@ class m220413_181402_crear_table_usuarios extends Migration
      */
     public function safeUp()
     {
-
+        $this->createTable('usuario', [
+            'id' => $this->primaryKey(),
+            'username' => $this->string()->notNull(),
+            'nombre' => $this->text(),
+            'apellido' => $this->text(),
+            'edad' => $this->integer(),
+        ]);
     }
 
     /**
@@ -20,9 +26,9 @@ class m220413_181402_crear_table_usuarios extends Migration
      */
     public function safeDown()
     {
-        echo "m220413_181402_crear_table_usuarios cannot be reverted.\n";
+        $this->dropTable('usuario');
 
-        return false;
+        return true;
     }
 
     /*
