@@ -15,6 +15,9 @@ $config = [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => '3bzJCyoxg6ClTRdgc9vtDR27ej-H81-r',
+            'parsers' => [
+                'application/json' => 'yii/web/JsonParser'
+            ]
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
@@ -48,9 +51,19 @@ $config = [
             'enablePrettyUrl' => true,
             'showScriptName' => true,
             'rules' => [
+                [
+                    'class' => 'yii\rest\UrlRule',
+                    'pluralize' => false,
+                    'controller' => 'apiv1/usuario',
+                ]
             ],
         ],
        
+    ],
+    'modules' => [
+        'apiv1' => [
+            'class' => 'app\modules\apiv1\Apiv1Module',
+        ],
     ],
     'params' => $params,
 ];
